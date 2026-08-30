@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Partners通信｜株式会社フジノミヤパートナーズ</title>
+<meta name="description" content="株式会社フジノミヤパートナーズが月1回以上（不定期含む）発行するメールマガジン「Partners通信」。お役立ちニュースや最新トピックをお届けします。バックナンバーと配信登録はこちら。" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Partners通信｜株式会社フジノミヤパートナーズ" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="theme-color" content="#141b2d" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23141b2d' d='M4 3h16v3H4z'/%3E%3Cpath fill='%23141b2d' d='M12 2l8 3v6c0 5-3.4 9-8 11C7.4 20 4 16 4 11V5z'/%3E%3Cpath fill='%23f0b429' d='M10.6 14.2l-2.3-2.3 1.4-1.4 0.9 0.9 3.8-3.8 1.4 1.4z'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 950: '#0b1220', 900: '#141b2d', 800: '#1e293b', 700: '#334155' },
+          gold: { DEFAULT: '#c99a3f', bright: '#f0b429', light: '#e6c27a' },
+          paper: '#f6f7f9',
+        },
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'system-ui', '-apple-system', 'sans-serif'],
+          serif: ['"Shippori Mincho"', '"Noto Serif JP"', 'serif'],
+        },
+        letterSpacing: { widest2: '0.35em' },
+      },
+    },
+  };
+</script>
+<style>
+  body { -webkit-font-smoothing: antialiased; }
+  .kicker { letter-spacing: 0.35em; }
+  .u-underline::after {
+    content: ""; display: block; width: 3rem; height: 2px; margin: 1.25rem auto 0;
+    background: #c99a3f;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+
+<body class="font-sans text-navy-900 bg-white antialiased">
+
+<!-- ============ ヘッダー（トップページと共通・リンクは index.html へ） ============ -->
+<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-shadow duration-300">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="flex h-16 md:h-20 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/logo-mark.png" alt="" aria-hidden="true" class="h-9 w-9 md:h-10 md:w-10 shrink-0 object-contain" />
+        <span class="leading-tight">
+          <span class="block font-serif text-sm md:text-lg font-bold tracking-wide text-navy-900">株式会社フジノミヤパートナーズ</span>
+          <span class="block text-[9px] md:text-[10px] kicker text-slate-400">FUJINOMIYA&nbsp;PARTNERS</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-4">
+        <nav class="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-medium text-navy-800">
+          <a href="index.html#business" class="hover:text-gold transition-colors">事業紹介</a>
+          <a href="index.html#news" class="hover:text-gold transition-colors">ニュース</a>
+          <a href="partners-news.html" class="text-gold font-bold" aria-current="page">Partners通信</a>
+          <a href="index.html#strengths" class="hover:text-gold transition-colors">私たちの強み</a>
+          <a href="index.html#philosophy" class="hover:text-gold transition-colors">企業理念</a>
+          <a href="index.html#company" class="hover:text-gold transition-colors">会社概要</a>
+          <a href="index.html#contact" class="ml-1 inline-flex items-center rounded-md bg-navy-900 px-5 py-2.5 font-bold text-white hover:bg-navy-800 transition-colors">お問い合わせ</a>
+        </nav>
+
+        <!-- ↓ href を Facebook ページの URL に差し替えてください -->
+        <a href="https://www.facebook.com/fujinomiyapartners" target="_blank" rel="noopener noreferrer" aria-label="Facebook（別ウィンドウで開きます）"
+           class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-slate-400 hover:text-navy-900">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.99 3.657 9.128 8.438 9.878v-6.988H7.898V12h2.54V9.797c0-2.507 1.492-3.891 3.777-3.891 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.99 22 12z"/></svg>
+        </a>
+
+        <button id="menuBtn" type="button" class="xl:hidden inline-flex items-center justify-center rounded-md p-2 text-navy-800 hover:bg-slate-100" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="iconOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="iconClose" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-200 bg-white">
+    <nav class="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-1 text-navy-800">
+      <a href="index.html#business" class="rounded-md px-3 py-3 hover:bg-slate-100">事業紹介</a>
+      <a href="index.html#news" class="rounded-md px-3 py-3 hover:bg-slate-100">ニュース</a>
+      <a href="partners-news.html" class="rounded-md px-3 py-3 font-bold text-gold bg-slate-50">Partners通信</a>
+      <a href="index.html#strengths" class="rounded-md px-3 py-3 hover:bg-slate-100">私たちの強み</a>
+      <a href="index.html#philosophy" class="rounded-md px-3 py-3 hover:bg-slate-100">企業理念</a>
+      <a href="index.html#company" class="rounded-md px-3 py-3 hover:bg-slate-100">会社概要・代表挨拶</a>
+      <a href="index.html#contact" class="mt-2 rounded-md bg-navy-900 px-3 py-3 text-center font-bold text-white">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-16 md:pt-20">
+
+  <!-- ============ ページタイトル ============ -->
+  <section class="bg-paper py-14 md:py-20">
+    <div class="mx-auto max-w-3xl px-5 lg:px-8 text-center">
+      <p class="text-gold font-bold kicker text-xs">PARTNERS NEWS</p>
+      <h1 class="mt-4 font-serif font-bold text-3xl md:text-4xl text-navy-900 u-underline">Partners通信</h1>
+      <nav class="mt-6 text-xs text-slate-500" aria-label="パンくずリスト">
+        <a href="index.html" class="hover:text-gold">ホーム</a>
+        <span class="mx-1.5">›</span>
+        <span class="text-slate-700">Partners通信</span>
+      </nav>
+      <p class="mt-6 text-[15px] leading-loose text-slate-600">
+        「Partners通信」は、株式会社フジノミヤパートナーズが<strong class="text-navy-900">月1回以上（不定期含む）</strong>お届けする<br class="hidden sm:block" />メールマガジンです。<br class="hidden sm:block" />
+        営業・リスク・ライフの各分野で役立つニュースや、知っておきたい最新トピックを<br class="hidden sm:block" />わかりやすくまとめてご案内します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 配信登録 ============ -->
+  <section id="subscribe" class="bg-navy-950 py-16 md:py-20">
+    <div class="mx-auto max-w-2xl px-5 lg:px-8 text-center">
+      <p class="text-gold font-bold kicker text-xs">SUBSCRIBE</p>
+      <h2 class="mt-4 font-serif font-bold text-3xl md:text-4xl text-white u-underline">配信登録</h2>
+      <p class="mt-6 text-sm leading-loose text-slate-300">
+        配信をご希望の方は、メールアドレスをご登録ください。<br class="hidden sm:block" /><strong class="text-white">登録は無料</strong>、配信は月1回以上（不定期含む）。<br class="hidden sm:block" />
+        不要になった際は、配信メール内のリンクからいつでも配信停止できます。
+      </p>
+
+      <!--
+        ▼ 送信先は FormSubmit → info@fpartners.jp（お問い合わせフォームと同じ。初回の「有効化」が済んでいれば追加作業なし）
+           Facebook や別のメルマガ配信システムに切り替える場合は、下の <form> の action を差し替えてください。
+      -->
+      <form id="subscribeForm"
+            action="https://formsubmit.co/info@fpartners.jp"
+            method="POST"
+            class="mt-8 rounded-2xl bg-white p-6 sm:p-8 text-left space-y-5">
+
+        <input type="hidden" name="_subject" value="【Partners通信】配信希望" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+        <p class="text-sm text-slate-500"><span class="text-red-500">*</span> は必須項目です。</p>
+
+        <div>
+          <label for="s-name" class="block text-sm font-bold text-navy-900">お名前</label>
+          <input id="s-name" name="お名前" type="text" autocomplete="name" placeholder="山田 太郎"
+                 class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+        </div>
+        <div>
+          <label for="s-company" class="block text-sm font-bold text-navy-900">会社名・団体名</label>
+          <input id="s-company" name="会社名" type="text" autocomplete="organization" placeholder="会社名"
+                 class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+        </div>
+        <div>
+          <label for="s-email" class="block text-sm font-bold text-navy-900">メールアドレス <span class="text-red-500">*</span></label>
+          <input id="s-email" name="email" type="email" required autocomplete="email" placeholder="xxxx@example.com"
+                 class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-slate-600">
+          <input type="checkbox" name="同意" value="同意する" required class="mt-1 h-4 w-4 shrink-0 rounded border-slate-400 text-gold focus:ring-gold/40" />
+          <span><a href="privacy.html" class="text-gold underline underline-offset-2" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して、配信を申し込みます。 <span class="text-red-500">*</span></span>
+        </label>
+
+        <button type="submit"
+                class="w-full rounded-md bg-navy-900 px-10 py-4 font-bold text-white hover:bg-navy-800 transition disabled:opacity-60">
+          配信を申し込む
+        </button>
+
+        <p class="text-xs text-slate-400">ご登録いただいたメールアドレスは、「Partners通信」の配信および関連するご連絡の目的にのみ利用します。</p>
+        <p id="subscribeStatus" role="status" aria-live="polite" class="text-sm font-bold"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ バックナンバー ============ -->
+  <section id="backnumbers" class="bg-white py-16 md:py-24">
+    <div class="mx-auto max-w-3xl px-5 lg:px-8">
+      <div class="text-center">
+        <p class="text-gold font-bold kicker text-xs">BACK NUMBERS</p>
+        <h2 class="mt-4 font-serif font-bold text-3xl md:text-4xl text-navy-900 u-underline">バックナンバー</h2>
+      </div>
+
+      <!--
+        ▼ 発行したら下の <li> をコピーして追加してください（新しい号を上に）。
+          ・日付は data-date="YYYY-MM-DD" と表示テキストの両方を更新
+          ・リンク先は PDF でも記事ページでも可。href を差し替え、外部/別タブで開くなら target="_blank" のまま
+          ・3か月以内の号には赤い「NEW」バッジが自動で付きます
+      -->
+      <ul class="mt-10 rounded-xl border border-slate-200 bg-white divide-y divide-slate-100">
+        <!-- ▼ 見本（第1号を発行したら本文を差し替え） -->
+        <li class="flex flex-col gap-2 px-6 py-5 sm:flex-row sm:items-center sm:gap-6" data-date="2026-09-01">
+          <div class="shrink-0 sm:w-28">
+            <p class="text-sm font-bold text-navy-900 tracking-wide">2026.09</p>
+          </div>
+          <p class="flex-1 text-[15px] text-slate-700">
+            <span class="news-new mr-2 hidden align-[2px] rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-white">NEW</span>（タイトル未定・発行準備中）
+          </p>
+          <a href="#" target="_blank" rel="noopener" class="shrink-0 text-sm font-bold text-navy-900 underline decoration-gold decoration-2 underline-offset-4 hover:text-gold">
+            開く<span aria-hidden="true"> →</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="mt-6 text-sm text-slate-500">※ 発行までしばらくお待ちください。</p>
+
+      <div class="mt-14 border-t border-slate-200 pt-8">
+        <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-bold text-navy-900 underline decoration-gold decoration-2 underline-offset-4 hover:text-gold">
+          <span aria-hidden="true">←</span> トップページへ戻る
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ フッター（トップページと共通） ============ -->
+<footer class="bg-navy-900 text-slate-400">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-mark.png" alt="" aria-hidden="true" class="h-9 w-9 shrink-0 object-contain" />
+        <span>
+          <span class="block font-serif font-bold text-white">株式会社フジノミヤパートナーズ</span>
+          <span class="block text-[10px] kicker text-slate-500">FUJINOMIYA&nbsp;PARTNERS</span>
+        </span>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+        <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a href="index.html#business" class="hover:text-gold transition-colors">事業紹介</a>
+          <a href="index.html#news" class="hover:text-gold transition-colors">ニュース</a>
+          <a href="partners-news.html" class="text-white hover:text-gold transition-colors">Partners通信</a>
+          <a href="index.html#strengths" class="hover:text-gold transition-colors">私たちの強み</a>
+          <a href="index.html#philosophy" class="hover:text-gold transition-colors">企業理念</a>
+          <a href="index.html#company" class="hover:text-gold transition-colors">会社概要</a>
+          <a href="privacy.html" class="hover:text-gold transition-colors">プライバシーポリシー</a>
+        </nav>
+        <!-- ↓ href を Facebook ページの URL に差し替えてください -->
+        <a href="https://www.facebook.com/fujinomiyapartners" target="_blank" rel="noopener noreferrer" aria-label="Facebook（別ウィンドウで開きます）"
+           class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/15 text-slate-300 transition-colors hover:border-white/40 hover:text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.99 3.657 9.128 8.438 9.878v-6.988H7.898V12h2.54V9.797c0-2.507 1.492-3.891 3.777-3.891 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.99 22 12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-white/10 pt-6 text-center text-xs">
+      <p>Copyright &copy; <span id="year">2026</span> Fujinomiya Partners Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // モバイルメニュー
+  (function () {
+    var btn = document.getElementById('menuBtn');
+    var menu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('iconOpen');
+    var iconClose = document.getElementById('iconClose');
+    function toggle(open) {
+      menu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+    }
+    btn.addEventListener('click', function () { toggle(menu.classList.contains('hidden')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
+  })();
+
+  // ヘッダーの影
+  (function () {
+    var header = document.getElementById('siteHeader');
+    function onScroll() { header.classList.toggle('shadow-md', window.scrollY > 8); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // バックナンバー：発行日から3か月以内の号に「NEW」バッジ
+  (function () {
+    var now = new Date();
+    document.querySelectorAll('#backnumbers li[data-date]').forEach(function (li) {
+      var d = new Date(li.getAttribute('data-date') + 'T00:00:00');
+      if (isNaN(d)) return;
+      var months = (now.getFullYear() - d.getFullYear()) * 12 + (now.getMonth() - d.getMonth());
+      if (d <= now && months <= 3) {
+        var badge = li.querySelector('.news-new');
+        if (badge) badge.classList.remove('hidden');
+      }
+    });
+  })();
+
+  // ▼ Google Apps Script のウェブアプリ URL を貼り付けると、登録内容が
+  //   スプレッドシート台帳（＋設定していれば Brevo の購読リスト）にも記録されます。
+  //   詳細は apps-script/form-handler.gs と docs/データ管理ガイド.md 参照。空でもフォームは動作します。
+  var LOG_ENDPOINT = '';
+
+  function logToEndpoint(form, formName) {
+    if (!LOG_ENDPOINT) return;
+    try {
+      var payload = { form: formName, page: location.href };
+      new FormData(form).forEach(function (v, k) { if (k.charAt(0) !== '_') payload[k] = v; });
+      fetch(LOG_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    } catch (_) { /* 記録失敗は送信をブロックしない */ }
+  }
+
+  // 配信登録フォーム送信（FormSubmit / Formspree 両対応・JS無効時はフォールバック）
+  (function () {
+    var form = document.getElementById('subscribeForm');
+    var status = document.getElementById('subscribeStatus');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      if (form.action.indexOf('your_form_id') !== -1 || form.action.indexOf('you@example.com') !== -1) {
+        e.preventDefault();
+        status.className = 'text-sm font-bold text-red-600';
+        status.textContent = '送信先が未設定です。partners-news.html の <form action="..."> を設定してください。';
+        return;
+      }
+      e.preventDefault();
+
+      logToEndpoint(form, 'Partners通信');
+
+      var endpoint = form.action;
+      if (endpoint.indexOf('formsubmit.co/') !== -1 && endpoint.indexOf('/ajax/') === -1) {
+        endpoint = endpoint.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      status.className = 'text-sm font-bold text-slate-500';
+      status.textContent = '送信中…';
+
+      fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) { return { res: res, data: data }; });
+        })
+        .then(function (r) {
+          var d = r.data || {};
+          var ok = r.res.ok && d.success !== 'false' && d.success !== false && !d.errors;
+          if (ok) {
+            form.reset();
+            status.className = 'text-sm font-bold text-green-700';
+            status.textContent = '配信登録を受け付けました。確認メールが届く場合がありますのでご確認ください。';
+          } else {
+            var msg = d.message ||
+              (d.errors && d.errors.map(function (x) { return x.message; }).join(', ')) ||
+              '送信に失敗しました';
+            throw new Error(msg);
+          }
+        })
+        .catch(function (err) {
+          status.className = 'text-sm font-bold text-red-600';
+          status.textContent = '送信に失敗しました。時間をおいて再度お試しください。（' + err.message + '）';
+        })
+        .finally(function () { btn.disabled = false; });
+    });
+  })();
+</script>
+</body>
+</html>
