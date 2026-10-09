@@ -141,15 +141,11 @@
         </div>
       </div>
 
-      <!-- お支払い方法について（Stripe決済のほか銀行振込にも対応） -->
+      <!-- お支払い方法について（Stripe決済のほか銀行振込にも対応。口座情報は申込フォーム送信後の完了画面・確認メールにのみ表示） -->
       <div class="mt-8 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-xs leading-relaxed text-slate-300 md:p-6">
         <p class="text-[11px] font-bold kicker text-gold">お支払い方法について</p>
         <p class="mt-2">
-          各プランのお申し込みは、上記の「Stripe決済」のほか、<strong class="text-white">銀行振込</strong>にも対応しております。銀行振込をご希望の方は、お申し込み前にお問い合わせまたは公式LINEよりその旨をご連絡ください。下記口座へお振込みください。
-        </p>
-        <p class="mt-3 text-slate-200">
-          ドコモSMTBネット銀行　法人第一支店（普通）1166063<br />
-          口座名義：株式会社フジノミヤパートナーズ
+          各プランのお申し込みは、<strong class="text-white">クレジットカード（Stripe）</strong>のほか、<strong class="text-white">銀行振込</strong>にも対応しております。下記の申込フォームで「銀行振込」をお選びいただくと、送信後の画面と確認メールにお振込先・お振込期限をご案内します。
         </p>
       </div>
 
@@ -184,12 +180,49 @@
             <li>（例）特典：トークスクリプトテンプレート／24時間質問チャット（1ヶ月）</li>
           </ol>
 
-          <!-- ↓ ライトプランの Stripe 決済リンク -->
-          <a href="https://buy.stripe.com/5kQ14oaZZfrb89Mg3f4Ja00" target="_blank" rel="noopener"
-             class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105">
-            このプランで申し込む（Stripe決済へ）<span aria-hidden="true">→</span>
-          </a>
-          <p class="mt-2 text-xs text-slate-400">※お申し込みページ（Stripe）で、お名前・メールアドレス・カード情報をご入力いただきます。</p>
+          <!-- ↓ ライトプランの申込フォーム（送信後、決済方法に応じてStripeへ誘導／銀行振込先を表示） -->
+          <div class="mt-8" data-apply-block data-plan="light" data-plan-name="ライトプラン"
+               data-stripe-url="https://buy.stripe.com/5kQ14oaZZfrb89Mg3f4Ja00" data-submit-label="このプランで申し込む">
+            <form class="apply-form space-y-4" data-apply-form>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="block text-xs font-bold text-slate-300">お名前<span class="text-red-400">*</span></label>
+                  <input type="text" name="name" required autocomplete="name" placeholder="山田太郎"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-300">お電話番号<span class="text-red-400">*</span></label>
+                  <input type="tel" name="tel" required autocomplete="tel" placeholder="080-0000-0000"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-bold text-slate-300">メールアドレス<span class="text-red-400">*</span></label>
+                  <input type="email" name="email" required autocomplete="email" placeholder="xxxx@example.com"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-300">お支払い方法<span class="text-red-400">*</span></p>
+                <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:gap-5">
+                  <label class="flex items-center gap-2 text-sm text-slate-200">
+                    <input type="radio" name="payment" value="クレジットカード" checked required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    クレジットカード（Stripe）
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-slate-200">
+                    <input type="radio" name="payment" value="銀行振込" required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    銀行振込
+                  </label>
+                </div>
+              </div>
+              <button type="submit"
+                      class="apply-submit inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105 disabled:opacity-60">
+                このプランで申し込む<span aria-hidden="true">→</span>
+              </button>
+              <p class="apply-status text-xs font-bold" role="status" aria-live="polite"></p>
+            </form>
+            <div class="apply-result hidden rounded-xl border border-gold/40 bg-white/[0.04] p-5 text-sm leading-relaxed text-slate-100"></div>
+            <p class="mt-2 text-xs text-slate-400">※お申し込み内容の確認メールをお送りします。クレジットカード決済はStripeの決済ページでお手続きいただきます。</p>
+          </div>
         </article>
 
         <!-- ミドルプラン詳細（推奨） -->
@@ -221,12 +254,49 @@
             <li>（例）先行申込特典：早期割引＋代表による個別戦略セッション1回</li>
           </ol>
 
-          <!-- ↓ ミドルプランの Stripe 決済リンク -->
-          <a href="https://buy.stripe.com/dRm9AUaZZbaVeya3gt4Ja01" target="_blank" rel="noopener"
-             class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105">
-            このプランで申し込む（Stripe決済へ）<span aria-hidden="true">→</span>
-          </a>
-          <p class="mt-2 text-xs text-slate-400">※お申し込みページ（Stripe）で、お名前・メールアドレス・カード情報をご入力いただきます。</p>
+          <!-- ↓ ミドルプランの申込フォーム（送信後、決済方法に応じてStripeへ誘導／銀行振込先を表示） -->
+          <div class="mt-8" data-apply-block data-plan="middle" data-plan-name="ミドルプラン"
+               data-stripe-url="https://buy.stripe.com/dRm9AUaZZbaVeya3gt4Ja01" data-submit-label="このプランで申し込む">
+            <form class="apply-form space-y-4" data-apply-form>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="block text-xs font-bold text-slate-200">お名前<span class="text-red-400">*</span></label>
+                  <input type="text" name="name" required autocomplete="name" placeholder="山田太郎"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-200">お電話番号<span class="text-red-400">*</span></label>
+                  <input type="tel" name="tel" required autocomplete="tel" placeholder="080-0000-0000"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-bold text-slate-200">メールアドレス<span class="text-red-400">*</span></label>
+                  <input type="email" name="email" required autocomplete="email" placeholder="xxxx@example.com"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-200">お支払い方法<span class="text-red-400">*</span></p>
+                <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:gap-5">
+                  <label class="flex items-center gap-2 text-sm text-slate-100">
+                    <input type="radio" name="payment" value="クレジットカード" checked required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    クレジットカード（Stripe）
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-slate-100">
+                    <input type="radio" name="payment" value="銀行振込" required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    銀行振込
+                  </label>
+                </div>
+              </div>
+              <button type="submit"
+                      class="apply-submit inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105 disabled:opacity-60">
+                このプランで申し込む<span aria-hidden="true">→</span>
+              </button>
+              <p class="apply-status text-xs font-bold" role="status" aria-live="polite"></p>
+            </form>
+            <div class="apply-result hidden rounded-xl border border-gold/40 bg-white/[0.04] p-5 text-sm leading-relaxed text-slate-100"></div>
+            <p class="mt-2 text-xs text-slate-400">※お申し込み内容の確認メールをお送りします。クレジットカード決済はStripeの決済ページでお手続きいただきます。</p>
+          </div>
         </article>
 
         <!-- ハイプラン詳細（満席・次回先行予約枠 受付中） -->
@@ -264,12 +334,49 @@
             いまお申し込みいただいた方は、<strong class="text-white">次回募集の「先行予約枠」</strong>として確保し、募集開始のご案内を最優先でお送りします（受講の開始は次回募集からとなります）。
             <br />開始時期やお支払いのタイミングのご相談は、お問い合わせまたは公式LINEより承ります。
           </p>
-          <!-- ↓ ハイプランの Stripe 決済リンク（次回募集の先行予約枠の確保用） -->
-          <a href="https://buy.stripe.com/5kQ3cwc430wh75I04h4Ja02" target="_blank" rel="noopener"
-             class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105">
-            次回募集の先行予約枠を確保する（Stripe決済へ）<span aria-hidden="true">→</span>
-          </a>
-          <p class="mt-2 text-xs text-slate-400">※お申し込みページ（Stripe）で、お名前・メールアドレス・カード情報をご入力いただきます。受講の開始は次回募集からです。</p>
+          <!-- ↓ ハイプランの申込フォーム（次回募集の先行予約枠の確保用。送信後、決済方法に応じてStripeへ誘導／銀行振込先を表示） -->
+          <div class="mt-4" data-apply-block data-plan="high" data-plan-name="ハイプラン"
+               data-stripe-url="https://buy.stripe.com/5kQ3cwc430wh75I04h4Ja02" data-submit-label="次回募集の先行予約枠を確保する" data-note="受講の開始は次回募集からとなります。">
+            <form class="apply-form space-y-4" data-apply-form>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="block text-xs font-bold text-slate-300">お名前<span class="text-red-400">*</span></label>
+                  <input type="text" name="name" required autocomplete="name" placeholder="山田太郎"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-300">お電話番号<span class="text-red-400">*</span></label>
+                  <input type="tel" name="tel" required autocomplete="tel" placeholder="080-0000-0000"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-bold text-slate-300">メールアドレス<span class="text-red-400">*</span></label>
+                  <input type="email" name="email" required autocomplete="email" placeholder="xxxx@example.com"
+                         class="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-300">お支払い方法<span class="text-red-400">*</span></p>
+                <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:gap-5">
+                  <label class="flex items-center gap-2 text-sm text-slate-200">
+                    <input type="radio" name="payment" value="クレジットカード" checked required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    クレジットカード（Stripe）
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-slate-200">
+                    <input type="radio" name="payment" value="銀行振込" required class="h-4 w-4 text-gold focus:ring-gold/40" />
+                    銀行振込
+                  </label>
+                </div>
+              </div>
+              <button type="submit"
+                      class="apply-submit inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105 disabled:opacity-60">
+                次回募集の先行予約枠を確保する<span aria-hidden="true">→</span>
+              </button>
+              <p class="apply-status text-xs font-bold" role="status" aria-live="polite"></p>
+            </form>
+            <div class="apply-result hidden rounded-xl border border-gold/40 bg-white/[0.04] p-5 text-sm leading-relaxed text-slate-100"></div>
+            <p class="mt-2 text-xs text-slate-400">※お申し込み内容の確認メールをお送りします。クレジットカード決済はStripeの決済ページでお手続きいただきます。受講の開始は次回募集からです。</p>
+          </div>
         </article>
       </div>
 
@@ -359,6 +466,101 @@
     function onScroll() { header.classList.toggle('shadow-md', window.scrollY > 8); }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ▼ 講座申込フォーム：送信先は Google Apps Script のウェブアプリ URL（apps-script/form-handler.gs をデプロイして取得）。
+  //   空のままだと送信時にエラー表示になります。詳細は README「講座申込フォームの仕組み」参照。
+  var REGISTRATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzjgG1FA144C77CzsBe5M72Efl1k70Lm-6z7pW8dlQp3GxoeGa99uzPuwvTlB92U9J_Mw/exec';
+
+  (function () {
+    function escapeHtml(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    document.querySelectorAll('[data-apply-block]').forEach(function (block) {
+      var form = block.querySelector('[data-apply-form]');
+      var result = block.querySelector('.apply-result');
+      var status = form.querySelector('.apply-status');
+      var submitBtn = form.querySelector('.apply-submit');
+      var plan = block.getAttribute('data-plan');
+      var planName = block.getAttribute('data-plan-name');
+      var stripeUrl = block.getAttribute('data-stripe-url');
+      var note = block.getAttribute('data-note') || '';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!REGISTRATION_ENDPOINT) {
+          status.className = 'apply-status text-xs font-bold text-red-400';
+          status.textContent = '現在お申し込みを受け付けられません。恐れ入りますが、お問い合わせまたは公式LINEよりご連絡ください。';
+          return;
+        }
+
+        var name = form.querySelector('[name="name"]').value.trim();
+        var tel = form.querySelector('[name="tel"]').value.trim();
+        var email = form.querySelector('[name="email"]').value.trim();
+        var payment = form.querySelector('[name="payment"]:checked').value;
+
+        submitBtn.disabled = true;
+        status.className = 'apply-status text-xs font-bold text-slate-400';
+        status.textContent = '送信中…';
+
+        fetch(REGISTRATION_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            form: '講座申込',
+            page: location.href,
+            planId: plan,
+            'プラン': planName,
+            'お名前': name,
+            '電話番号': tel,
+            email: email,
+            '決済方法': payment
+          })
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (!data || data.result !== 'ok') throw new Error((data && data.message) || '送信に失敗しました');
+
+            form.classList.add('hidden');
+            result.classList.remove('hidden');
+
+            if (payment === '銀行振込' && data.bank) {
+              result.innerHTML =
+                '<p class="font-bold text-white">お申込みを受け付けました（申込ID：' + escapeHtml(data.id) + '）</p>' +
+                '<p class="mt-3 text-slate-300">以下の口座へお振込みください。</p>' +
+                '<p class="mt-3 rounded-lg bg-white/5 p-3 text-slate-100">' +
+                escapeHtml(data.bank.name) + '　' + escapeHtml(data.bank.branch) + '（' + escapeHtml(data.bank.type) + '）' + escapeHtml(data.bank.number) + '<br />' +
+                '口座名義：' + escapeHtml(data.bank.holder) +
+                '</p>' +
+                '<p class="mt-3 text-slate-300">お振込の際は、振込人名義欄に【申込ID＋お名前】をご入力ください。<br />（例：' + escapeHtml(data.id) + ' ' + escapeHtml(name) + '）</p>' +
+                '<p class="mt-2 text-slate-300">お振込期限：' + escapeHtml(data.due) + '</p>' +
+                (note ? '<p class="mt-2 text-slate-300">' + escapeHtml(note) + '</p>' : '') +
+                '<p class="mt-3 text-xs text-slate-400">確認メールもお送りしています。ご不明点はお問い合わせまたは公式LINEよりご連絡ください。</p>';
+            } else {
+              var redirectUrl = stripeUrl + (stripeUrl.indexOf('?') > -1 ? '&' : '?') +
+                'client_reference_id=' + encodeURIComponent(data.id) +
+                '&prefilled_email=' + encodeURIComponent(email);
+              result.innerHTML =
+                '<p class="font-bold text-white">お申込みを受け付けました（申込ID：' + escapeHtml(data.id) + '）</p>' +
+                '<p class="mt-3 text-slate-300">このあと、Stripeの決済ページへ移動します。移動しない場合は下のボタンを押してください。</p>' +
+                (note ? '<p class="mt-2 text-slate-300">' + escapeHtml(note) + '</p>' : '') +
+                '<a href="' + encodeURI(redirectUrl) + '" target="_blank" rel="noopener" ' +
+                'class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-gold-bright px-7 py-3.5 text-sm font-bold text-navy-950 transition hover:brightness-105">' +
+                'Stripe決済ページへ進む<span aria-hidden="true">→</span></a>';
+              setTimeout(function () { window.open(redirectUrl, '_blank'); }, 1200);
+            }
+          })
+          .catch(function (err) {
+            submitBtn.disabled = false;
+            status.className = 'apply-status text-xs font-bold text-red-400';
+            status.textContent = '送信に失敗しました。時間をおいて再度お試しください。（' + err.message + '）';
+          });
+      });
+    });
   })();
 </script>
 </body>

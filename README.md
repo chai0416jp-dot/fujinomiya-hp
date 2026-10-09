@@ -95,16 +95,26 @@ Readdy で作成したデザイン・構成を、**完全無料で運用でき�
 - **3つの事業ブランド**：各カードに `id="brand-sales/brand-risk/brand-life"`。ボタンは2つ ── 「詳しく見る」→ `services-*.html`（ブランド詳細ページ）／「詳しく聞く」→ `#contact`（お問い合わせ）。
 - `services-*.html` の本文は、いただいた事業イメージをもとにした**下書き**です。各セクション（WHY／背景・実績／こんな方へ／提供内容 ほか）を確認のうえ修正してください。ブランドカラーは各ページ冒頭 `<style>` の `--brand` / `--brand-bright` で変更できます。
 
-### Stripe 決済リンク（`plan-detail.html` の各「このプランで申し込む」ボタンに設定）
+### 講座申込フォームの仕組み（`plan-detail.html`）
 
-| プラン | href |
+各プランの「申し込む」は、単純なStripeリンクではなく**申込フォーム**（お名前・電話番号・メール・決済方法を入力）になっています。送信後の流れ：
+
+1. フォーム送信 → Google Apps Script（`apps-script/form-handler.gs`）が一意の**申込ID**（`REG-202610-A8F3` 形式）を発行し、スプレッドシート「registrations」に1行追記（ステータス＝**未入金**）。
+2. 申込者へ確認メールを自動送信（決済方法で内容が変わる）。担当者（`NOTIFY_EMAIL`）にも通知。
+3. 画面上の表示（フォームの代わりに表示される完了パネル）：
+   - **クレジットカード（Stripe）**：「申込ID」を表示し、Stripeの決済ページ（`client_reference_id` に申込IDを付与）へ自動的に新しいタブで遷移。
+   - **銀行振込**：振込先口座・振込期限・「振込人名義欄に【申込ID＋お名前】を入力」の案内を、**その場でのみ**表示（口座情報はサイトのHTML・ソースには一切含まれず、Apps Scriptからの応答で動的に表示されます）。同じ内容を確認メールにも記載。
+
+| プラン | Stripe決済リンク（`data-stripe-url` に設定） |
 |---|---|
 | ライト | `https://buy.stripe.com/5kQ14oaZZfrb89Mg3f4Ja00` |
 | ミドル | `https://buy.stripe.com/dRm9AUaZZbaVeya3gt4Ja01` |
 | ハイ（満席／次回先行予約枠） | `https://buy.stripe.com/5kQ3cwc430wh75I04h4Ja02` |
 
-- 変更時は `plan-detail.html` の各 `<a>` 直前のコメント（「ライトプランの Stripe 決済リンク」等）が目印。
-- Stripe の決済ページで、購入者がお名前・メールアドレス・カード情報を入力します（`plan-detail.html` に注記済み）。
+- 決済リンクを変更する場合は、各プランの `<div data-apply-block ... data-stripe-url="...">` の値を書き換える。
+- **セットアップ（未設定だと申込フォームはエラー表示になります）**：`apps-script/form-handler.gs` をデプロイし、発行されたウェブアプリURLを `plan-detail.html` の `var REGISTRATION_ENDPOINT = '';` に貼り付ける（`index.html`／`partners-news.html` の `LOG_ENDPOINT` と同じURLを使い回してよい）。銀行口座・振込期限は `form-handler.gs` の `SETTINGS.BANK` / `SETTINGS.PAYMENT_DEADLINE_DAYS` で管理（現在：ドコモSMTBネット銀行 法人第一支店 普通 1166063 株式会社フジノミヤパートナーズ／申込から3日後）。
+- **入金確認はいずれも手動**：Google Apps Scriptはリクエストヘッダーを読めない仕様のため、StripeのWebhook署名検証ができません。クレジットカードはStripe管理画面／通知メール、銀行振込は実際の入金（振込人名義の「申込ID＋お名前」で照合）を確認し、スプレッドシート「registrations」の「ステータス」列を手動で「未入金」→「完了」に書き換えてください。
+- Stripe の決済ページでは、購入者があらためてカード情報を入力します（メールアドレスは `prefilled_email` で引き継ぎ）。
 - **LINE 友だち追加 URL の差し替え箇所**：`services-sales.html#course` の緑ボタン、`plan-detail.html` 下部バナー（いずれも `href="#"`）。
 - **期間・キャンペーン依存の文言**（募集終了後に必ず見直し）：ニュース＆先行特典バナーの「10月期生・先行募集」「10月開講予定」「先行募集期間中のお申し込みで早期割引＋個別戦略セッション」、ミドルプランのバッジ「人気No.1 ／ 先行募集中」、カリキュラムの「先行申込特典」、ハイプランの「満席／次回先行予約枠 受付中」「受講の開始は次回募集から」（決済ボタンは有効。次回募集の先行予約枠を確保する導線）、ニュースの「証券診断・簡易レポート」記事の「9月募集・限定3社／先着順」。
   - **開講月を変える場合**：`index.html` ニュース見出しの「10月期生」、`plan-detail.html` 先行特典バナーの「10月期生・先行募集受付中」「10月開講予定」をまとめて更新。
