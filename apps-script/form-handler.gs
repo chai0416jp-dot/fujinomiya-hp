@@ -215,7 +215,7 @@ function sendApplicantMail_(method, info) {
     subject = '【フジノミヤパートナーズ】お申込みを受け付けました（お振込のご案内）';
     body =
       info.name + ' 様\n\n' +
-      '実践型 営業トレーナー養成プログラムへのお申込みを受け付けました。\n' +
+      '「' + info.planName + '」へのお申込みを受け付けました。\n' +
       '以下の内容でご確認ください。\n\n' +
       '申込ID：' + info.id + '\n' +
       'プラン：' + info.planName + '\n' +
@@ -235,7 +235,7 @@ function sendApplicantMail_(method, info) {
     subject = '【フジノミヤパートナーズ】お申込みを受け付けました';
     body =
       info.name + ' 様\n\n' +
-      '実践型 営業トレーナー養成プログラムへのお申込みを受け付けました。\n\n' +
+      '「' + info.planName + '」へのお申込みを受け付けました。\n\n' +
       '申込ID：' + info.id + '\n' +
       'プラン：' + info.planName + '\n' +
       '決済方法：クレジットカード（Stripe）\n\n' +
