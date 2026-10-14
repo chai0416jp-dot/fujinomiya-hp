@@ -42,8 +42,10 @@ var SETTINGS = {
   NOTIFY_REGISTRATION: true,
 
   // ▼ Brevo 連携（未設定なら newsletter シートへの記録のみ行います）
-  BREVO_API_KEY: '',                   // 例: xkeysib-xxxxxxxx...
-  BREVO_LIST_ID: 0,                    // 例: 3  （Brevo の購読者リスト ID）
+  // ※ BREVO_API_KEY は機密情報のため、このリポジトリには書き込まないこと。
+  //   Apps Script エディタ（デプロイ中の実体）にのみ直接貼り付けて運用する。
+  BREVO_API_KEY: '',                   // 例: xkeysib-xxxxxxxx...（Apps Scriptエディタ側でのみ設定）
+  BREVO_LIST_ID: 2,                    // Partners通信 配信リスト（Brevo）
 
   // ▼ 講座申込：銀行振込の振込先（完了画面・確認メールにのみ表示。サイト上には常時公開しません）
   BANK: {
