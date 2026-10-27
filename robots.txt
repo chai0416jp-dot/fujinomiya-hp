@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chai0416jp-dot.github.io/fujinomiya-hp/sitemap.xml
